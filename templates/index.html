@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Quiz App</title>
+  <style>
+    body { font-family: Arial, sans-serif; max-width: 700px; margin: 40px auto; padding: 20px; background: #f4f6f9; }
+    .q-card { background: #fff; padding: 20px; border-radius: 10px; margin-bottom: 18px; box-shadow: 0 2px 6px rgba(0,0,0,0.08); }
+    button { background: #2563eb; color: #fff; border: none; padding: 12px 24px; border-radius: 8px; font-size: 16px; cursor: pointer; }
+  </style>
+</head>
+<body>
+  <h1>Quiz Application</h1>
+  <form method="POST" action="/submit">
+    {% for q in questions %}
+      <div class="q-card">
+        <p><strong>Q{{ loop.index }}. {{ q['question'] }}</strong></p>
+        <label><input type="radio" name="q_{{ q['id'] }}" value="A" required> {{ q['option_a'] }}</label><br>
+        <label><input type="radio" name="q_{{ q['id'] }}" value="B"> {{ q['option_b'] }}</label><br>
+        <label><input type="radio" name="q_{{ q['id'] }}" value="C"> {{ q['option_c'] }}</label><br>
+        <label><input type="radio" name="q_{{ q['id'] }}" value="D"> {{ q['option_d'] }}</label>
+      </div>
+    {% endfor %}
+    <button type="submit">Submit Quiz</button>
+  </form>
+</body>
+</html>

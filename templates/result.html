@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Result</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Segoe UI", Arial, sans-serif;
+            background: linear-gradient(135deg, #eef2ff 0%, #f8fafc 100%);
+            color: #0f172a;
+            margin: 0;
+            padding: 24px 16px 48px;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .result-container {
+            width: 100%;
+            max-width: 520px;
+        }
+
+        .result-card {
+            background: #ffffff;
+            padding: 32px 24px;
+            border-radius: 18px;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 12px 30px rgba(15, 23, 42, 0.08);
+            text-align: center;
+        }
+
+        .badge {
+            display: inline-block;
+            background: #eff6ff;
+            color: #2563eb;
+            font-size: 13px;
+            font-weight: 600;
+            padding: 6px 14px;
+            border-radius: 999px;
+            margin-bottom: 14px;
+        }
+
+        h1 {
+            margin: 0 0 10px;
+            font-size: 26px;
+            color: #0f172a;
+        }
+
+        .subtitle {
+            margin: 0 0 24px;
+            font-size: 15px;
+            color: #475569;
+        }
+
+        .score-box {
+            background: #f8fafc;
+            border: 1.5px solid #dbeafe;
+            border-radius: 14px;
+            padding: 20px;
+            margin-bottom: 24px;
+        }
+
+        .score-label {
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 0.6px;
+            color: #64748b;
+            margin-bottom: 6px;
+        }
+
+        .score-value {
+            font-size: 38px;
+            font-weight: 700;
+            color: #2563eb;
+        }
+
+        .retry-btn {
+            display: block;
+            width: 100%;
+            text-decoration: none;
+            background: #2563eb;
+            color: #ffffff;
+            padding: 14px 20px;
+            font-size: 16px;
+            font-weight: 600;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(37, 99, 235, 0.25);
+            transition: background 0.2s ease, transform 0.1s ease;
+        }
+
+        .retry-btn:hover {
+            background: #1d4ed8;
+        }
+
+        .retry-btn:active {
+            transform: scale(0.99);
+        }
+    </style>
+</head>
+<body>
+    <div class="result-container">
+        <div class="result-card">
+            <span class="badge">Quiz Completed</span>
+            <h1>Aapka Result</h1>
+            <p class="subtitle">Quiz poora karne ke liye shukriya!</p>
+
+            <div class="score-box">
+                <div class="score-label">Your Score</div>
+                <div class="score-value">{{ score }} / {{ total }}</div>
+            </div>
+
+            <a href="/" class="retry-btn">Take Quiz Again</a>
+        </div>
+    </div>
+</body>
+</html>
